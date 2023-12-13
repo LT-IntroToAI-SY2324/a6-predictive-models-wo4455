@@ -42,9 +42,12 @@ for index in range(len(x_test)):
     print("Predicted Outcome: " + y_pred + "; Actual Outcome: " + actual + ";\n")
 
 # Step 9: Test Custom Writeup Data
-# custom_data = numpy.array([[34, 56000, 1]])
-# custom_scaler = StandardScaler().fit(custom_data)
-# custom_data = custom_scaler.transform(custom_data)
-# custom_prediction = model.predict(custom_data.reshape(-1, 3))[0]
-# print("Custom Data For Writeup Outcome:")
-# print("Not Purchased" if not custom_prediction else "Purchased")
+custom_data = numpy.array([[34, 56000, 1]])
+custom_scaler = StandardScaler().fit(custom_data)
+custom_data = custom_scaler.transform(custom_data)
+custom_prediction = model.predict(custom_data.reshape(-1, 3))[0]
+print("Custom Data For Writeup Outcome:")
+if not custom_prediction:
+    print("Not Purchased")
+else:
+    print("Purchased")
